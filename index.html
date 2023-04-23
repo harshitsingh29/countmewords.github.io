@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountMeWords.com</title>
+    <link rel="icon" type="image/x-icon" href="typing.png">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div>
+        <h1>CountMeWords.com</h1>
+        <textarea id="words" oninput="countWordsAndChars()" cols="50" rows="10" placeholder="I am all Yours!!"></textarea>
+        <br>
+        <p id="showcharcount"> </p>
+        <p id="showwordcount"> </p>
+        <br>
+        <div class="unibutton">
+            <button onclick="cleartext()">Clear Text</button>
+            <button onclick="copytext()">Copy Text</button>
+            <button onclick="savetext()">Save Text</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        function copytext() {
+            var copyText = document.getElementById("words");
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            var successful = document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+
+</body>
+
+</html>
